@@ -30,6 +30,11 @@ private:
     
 public:
 
+    PhoneBook()
+    {
+        contactsLength = 0;
+    }
+
     void    addContract()
     {
         std::string  firstName;
