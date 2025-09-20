@@ -35,5 +35,6 @@ void Contact::printSpecifically(void)
     std::cout << "last name : " << lastName << std::endl;
     std::cout << "nickname : " << nickname << std::endl;
     std::cout << "phone number : " << phoneNumber << std::endl;
+    std::cout << "darkest secret : " << secret << std::endl;
     std::cout << std::endl;
 }
