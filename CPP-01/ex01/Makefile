@@ -1,8 +1,8 @@
 # Executable
-NAME = zombieArr
+NAME = zombieHorde
 
 # Compilation
-CC = g++
+CC = c++
 COMPL_FLAGS = -Wall -Wextra -Werror -std=c++98
 LINK_FLAGS = 
 # -g -fsanitize=address
