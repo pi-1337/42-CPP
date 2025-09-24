@@ -1,5 +1,5 @@
 # Executable
-NAME = FixedPoint_moreFeatures
+NAME = BSP
 
 # Compilation
 CC = c++
@@ -15,10 +15,10 @@ OBJ_DIR = obj
 OBJ_DIRS = $(OBJ_DIR)
 
 # INC
-INC = Fixed.hpp 
+INC = Fixed.hpp Point.hpp 
 
 # SRC
-SRC = main.cpp Fixed.cpp 
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp 
 
 # OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

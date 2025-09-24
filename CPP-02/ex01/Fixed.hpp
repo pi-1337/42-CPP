@@ -5,8 +5,6 @@
 #include <iostream>
 #include <cmath>
 
-const double EPSILON = std::numeric_limits<double>::epsilon();
-
 class Fixed
 {
 
@@ -24,26 +22,6 @@ public:
 
     // operators
     Fixed&  operator=( Fixed const &obj );
-    bool    operator<( Fixed const &obj );
-    bool    operator>( Fixed const &obj );
-    bool    operator<=( Fixed const &obj );
-    bool    operator>=( Fixed const &obj );
-    //arithmetic
-    Fixed   operator+( Fixed const &obj );
-    Fixed   operator-( Fixed const &obj );
-    Fixed   operator*( Fixed const &obj );
-    Fixed   operator/( Fixed const &obj );
-    //++ --
-    Fixed&  operator++( void );
-    Fixed   operator--( int prev );
-    Fixed&  operator++( void );
-    Fixed   operator--( int prev );
-    
-    //statuic members ajmi
-    static Fixed&  min(Fixed& a, Fixed& b);
-    static Fixed&  max(Fixed& a, Fixed& b);
-    static Fixed&  min(Fixed& const a, Fixed& const b);
-    static Fixed&  max(Fixed& const a, Fixed& const b);
 
     // methods ajmi
     int     getRawBits( void ) const;
