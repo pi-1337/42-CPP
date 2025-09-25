@@ -2,6 +2,7 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -31,6 +32,22 @@ int main()
     scavTrap.beRepaired(100);
 
     scavTrap.guardGate();
+
+
+    FragTrap fragTrap = FragTrap("joey");
+
+    fragTrap.attack("robot1337");
+    fragTrap.beRepaired(1);
+    fragTrap.highFivesGuys();
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+    fragTrap.takeDamage(100);
+
 
     return 0;
 }

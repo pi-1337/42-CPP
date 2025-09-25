@@ -6,6 +6,8 @@ int main()
 {
     
     ClapTrap clapTrap = ClapTrap("joey");
+    ClapTrap clapTrap1 = ClapTrap(clapTrap);
+    clapTrap1 = clapTrap;
 
     clapTrap.attack("my_target");
     clapTrap.beRepaired(100);

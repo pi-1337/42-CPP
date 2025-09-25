@@ -11,16 +11,16 @@ ClapTrap::ClapTrap(std::string _name)
     std::cout << "ClapTrap " << _name << " is Created" << std::endl;
 }
 
-ClapTrap::~ClapTrap()
-{
-    std::cout << "ClapTrap " << name << " is Destructed" << std::endl;
-}
-
 void    ClapTrap::attack(const std::string& target)
 {
-    if (energyPoints <= 0 || hitPoints <= 0)
+    if (hitPoints <= 0)
     {
-        std::cout << "Out of Resources !" << std::endl;
+        std::cout << name << " is Dead!" << std::endl;
+        return ;
+    }
+    if (energyPoints <= 0)
+    {
+        std::cout << "Out of Energy Points !" << std::endl;
         return ;
     }
     energyPoints--;
@@ -33,9 +33,14 @@ void    ClapTrap::attack(const std::string& target)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (energyPoints <= 0 || hitPoints <= 0)
+    if (hitPoints <= 0)
     {
-        std::cout << "Out of Resources !" << std::endl;
+        std::cout << name << " is Dead!" << std::endl;
+        return ;
+    }
+    if (energyPoints <= 0)
+    {
+        std::cout << "Out of Energy Points !" << std::endl;
         return ;
     }
     energyPoints--;
@@ -48,9 +53,36 @@ void    ClapTrap::beRepaired(unsigned int amount)
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
+    if (hitPoints <= 0)
+    {
+        std::cout << name << " is Dead!" << std::endl;
+        return ;
+    }
     std::cout << "ClapTrap "
                 << name << " takes "
                 << amount << " amount of damage"
                 << std::endl;
 }
 
+ClapTrap::~ClapTrap()
+{
+    std::cout << "ClapTrap " << name << " is Destructed" << std::endl;
+}
+ClapTrap::ClapTrap(ClapTrap const &other)
+{
+    this->name = other.name;
+    this->attackDamage = other.attackDamage;
+    this->energyPoints = other.energyPoints;
+    this->hitPoints = other.hitPoints;
+}
+ClapTrap ClapTrap::operator=(ClapTrap const &other)
+{
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->attackDamage = other.attackDamage;
+        this->energyPoints = other.energyPoints;
+        this->hitPoints = other.hitPoints;
+    }
+    return *this;
+}

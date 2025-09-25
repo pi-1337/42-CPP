@@ -1,5 +1,5 @@
 # Executable
-NAME = ScavTrap
+NAME = FragTrap
 
 # Compilation
 CC = c++
@@ -15,10 +15,10 @@ OBJ_DIR = obj
 OBJ_DIRS = $(OBJ_DIR)
 
 # INC
-INC = ClapTrap.hpp ScavTrap.hpp 
+INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 # SRC
-SRC = ClapTrap.cpp ScavTrap.cpp main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 # OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

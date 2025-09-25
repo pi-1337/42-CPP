@@ -13,7 +13,13 @@ private:
     int             attackDamage;
 
 public:
+    // orthodox
     ClapTrap(std::string _name);
+    ClapTrap(ClapTrap const &other);
+    ClapTrap operator=(ClapTrap const &other);
+
+
+    ~ClapTrap();
 
     void    attack(const std::string& target);
     void    takeDamage(unsigned int amount);
