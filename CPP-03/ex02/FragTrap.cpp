@@ -19,14 +19,7 @@ FragTrap::FragTrap(FragTrap const &other)
 }
 FragTrap FragTrap::operator=(FragTrap const &other)
 {
-    if (this != &other)
-    {
-        this->name = other.name;
-        this->attackDamage = other.attackDamage;
-        this->energyPoints = other.energyPoints;
-        this->hitPoints = other.hitPoints;
-        std::cout << "FragTrap " << name << " is Copied by operator" << std::endl;
-    }
+    ClapTrap::operator=(other);
     return *this;
 }
 

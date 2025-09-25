@@ -43,14 +43,7 @@ ScavTrap::ScavTrap(ScavTrap const &other)
 }
 ScavTrap ScavTrap::operator=(ScavTrap const &other)
 {
-    if (this != &other)
-    {
-        this->name = other.name;
-        this->attackDamage = other.attackDamage;
-        this->energyPoints = other.energyPoints;
-        this->hitPoints = other.hitPoints;
-        std::cout << "ScavTrap " << name << " is Copied by operator" << std::endl;
-    }
+    ClapTrap::operator=(other);
     return *this;
 }
 
