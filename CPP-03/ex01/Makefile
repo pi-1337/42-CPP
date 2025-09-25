@@ -15,7 +15,7 @@ OBJ_DIR = obj
 OBJ_DIRS = $(OBJ_DIR)
 
 # INC
-INC = ClapTrap.hpp ScavTrap.hpp 
+INC = ClapTrap.hpp ScavTrap.hpp
 
 # SRC
 SRC = ClapTrap.cpp ScavTrap.cpp main.cpp

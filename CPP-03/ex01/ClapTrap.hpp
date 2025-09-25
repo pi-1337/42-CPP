@@ -18,7 +18,6 @@ public:
     ClapTrap(ClapTrap const &other);
     ClapTrap operator=(ClapTrap const &other);
 
-
     ~ClapTrap();
 
     void    attack(const std::string& target);

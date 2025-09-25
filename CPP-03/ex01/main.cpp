@@ -5,32 +5,31 @@
 
 int main()
 {
+    ScavTrap first("first");
+    ScavTrap second("second");
+    ScavTrap third(first);
     
-    ScavTrap scavTrap = ScavTrap("joey");
+    std::cout << std::endl << "-----" << std::endl << std::endl;
 
-    scavTrap.attack("my_target");
-    scavTrap.beRepaired(100);
-    scavTrap.attack("my_target");
-    scavTrap.takeDamage(20);
-    std::cout << std::endl;
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    std::cout << std::endl;
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    std::cout << std::endl;
-    scavTrap.beRepaired(100);
 
-    scavTrap.guardGate();
+    first.attack("second");
+    second.attack("first");
+
+    second = first;
+
+    second.attack("first");
+    third.attack("second");
+
+
+
+    std::cout << std::endl << "-----" << std::endl << std::endl;
+
+    third = second;
+    third.guardGate();
+
+
+
+    std::cout << std::endl << "-----" << std::endl << std::endl;
 
     return 0;
 }

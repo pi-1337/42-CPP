@@ -6,48 +6,31 @@
 
 int main()
 {
+    FragTrap first("first");
+    FragTrap second("second");
+    FragTrap third(first);
     
-    ScavTrap scavTrap = ScavTrap("joey");
-
-    scavTrap.attack("my_target");
-    scavTrap.beRepaired(100);
-    scavTrap.attack("my_target");
-    scavTrap.takeDamage(20);
-    std::cout << std::endl;
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    std::cout << std::endl;
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    scavTrap.attack("my_target");
-    std::cout << std::endl;
-    scavTrap.beRepaired(100);
-
-    scavTrap.guardGate();
+    std::cout << std::endl << "-----" << std::endl << std::endl;
 
 
-    FragTrap fragTrap = FragTrap("joey");
+    first.attack("second");
+    second.attack("first");
 
-    fragTrap.attack("robot1337");
-    fragTrap.beRepaired(1);
-    fragTrap.highFivesGuys();
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
-    fragTrap.takeDamage(100);
+    second = first;
 
+    second.attack("first");
+    third.attack("second");
+
+
+
+    std::cout << std::endl << "-----" << std::endl << std::endl;
+
+    third = second;
+    third.highFivesGuys();
+
+
+
+    std::cout << std::endl << "-----" << std::endl << std::endl;
 
     return 0;
 }

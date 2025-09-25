@@ -2,14 +2,6 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string _name)
-    : name(_name)
-    , hitPoints(10)
-    , energyPoints(10)
-    , attackDamage(0)
-{
-    std::cout << "ClapTrap " << _name << " is Created" << std::endl;
-}
 
 void    ClapTrap::attack(const std::string& target)
 {
@@ -64,9 +56,14 @@ void    ClapTrap::takeDamage(unsigned int amount)
                 << std::endl;
 }
 
-ClapTrap::~ClapTrap()
+// orthodox
+ClapTrap::ClapTrap(std::string _name)
+    : name(_name)
+    , hitPoints(10)
+    , energyPoints(10)
+    , attackDamage(0)
 {
-    std::cout << "ClapTrap " << name << " is Destructed" << std::endl;
+    std::cout << "ClapTrap " << _name << " is Created by Default Constructor" << std::endl;
 }
 ClapTrap::ClapTrap(ClapTrap const &other)
 {
@@ -74,6 +71,7 @@ ClapTrap::ClapTrap(ClapTrap const &other)
     this->attackDamage = other.attackDamage;
     this->energyPoints = other.energyPoints;
     this->hitPoints = other.hitPoints;
+    std::cout << "ClapTrap " << name << " is Created by Copy Constructor" << std::endl;
 }
 ClapTrap ClapTrap::operator=(ClapTrap const &other)
 {
@@ -83,6 +81,12 @@ ClapTrap ClapTrap::operator=(ClapTrap const &other)
         this->attackDamage = other.attackDamage;
         this->energyPoints = other.energyPoints;
         this->hitPoints = other.hitPoints;
+        std::cout << "ClapTrap " << name << " is Copied by operator" << std::endl;
     }
     return *this;
+}
+
+ClapTrap::~ClapTrap()
+{
+    std::cout << "ClapTrap " << name << " is Destructed" << std::endl;
 }
