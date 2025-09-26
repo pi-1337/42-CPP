@@ -14,7 +14,7 @@ public:
     // orthodox
     FragTrap(std::string _name);
     FragTrap(FragTrap const &other);
-    FragTrap operator=(FragTrap const &other);
+    FragTrap& operator=(FragTrap const &other);
 
     ~FragTrap();
 

@@ -73,7 +73,7 @@ ClapTrap::ClapTrap(ClapTrap const &other)
     this->hitPoints = other.hitPoints;
     std::cout << "ClapTrap " << name << " is Created by Copy Constructor" << std::endl;
 }
-ClapTrap ClapTrap::operator=(ClapTrap const &other)
+ClapTrap& ClapTrap::operator=(ClapTrap const &other)
 {
     if (this != &other)
     {

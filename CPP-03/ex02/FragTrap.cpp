@@ -17,7 +17,7 @@ FragTrap::FragTrap(FragTrap const &other)
 {
     std::cout << "FragTrap " << name << " is Created by Copy Constructor" << std::endl;
 }
-FragTrap FragTrap::operator=(FragTrap const &other)
+FragTrap& FragTrap::operator=(FragTrap const &other)
 {
     ClapTrap::operator=(other);
     return *this;

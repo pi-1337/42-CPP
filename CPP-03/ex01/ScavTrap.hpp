@@ -14,7 +14,7 @@ public:
     // orthodox
     ScavTrap(std::string _name);
     ScavTrap(ScavTrap const &other);
-    ScavTrap operator=(ScavTrap const &other);
+    ScavTrap& operator=(ScavTrap const &other);
 
     ~ScavTrap();
 

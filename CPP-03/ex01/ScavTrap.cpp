@@ -41,7 +41,7 @@ ScavTrap::ScavTrap(ScavTrap const &other)
 {
     std::cout << "ScavTrap " << name << " is Created by Copy Constructor" << std::endl;
 }
-ScavTrap ScavTrap::operator=(ScavTrap const &other)
+ScavTrap& ScavTrap::operator=(ScavTrap const &other)
 {
     ClapTrap::operator=(other);
     return *this;
