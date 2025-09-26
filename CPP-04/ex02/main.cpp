@@ -12,6 +12,7 @@ int main()
 {
     
     
+
     Animal* ptr = new Dog();
 
     ptr->makeSound();
