@@ -16,14 +16,15 @@ Cat::Cat(Cat &other): Animal::Animal(other)
 }
 Cat& Cat::operator=(Cat &other)
 {
-    if (this == &other)
-        this->type = other.type;
+    this->type = other.type;
+    this->brain = new Brain(*other.brain);
     std::cout << "Cat Copy Operator Called" << std::endl;
     return *this;
 }
 Cat::~Cat()
 {
     delete brain;
+    brain = NULL;
     std::cout << "Cat Destructor Called" << std::endl;
 }
 

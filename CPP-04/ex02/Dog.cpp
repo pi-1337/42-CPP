@@ -24,6 +24,7 @@ Dog& Dog::operator=(Dog &other)
 Dog::~Dog()
 {
     delete brain;
+    brain = NULL;
     std::cout << "Dog Destructor Called" << std::endl;
 }
 

@@ -24,6 +24,7 @@ Cat& Cat::operator=(Cat &other)
 Cat::~Cat()
 {
     delete brain;
+    brain = NULL;
     std::cout << "Cat Destructor Called" << std::endl;
 }
 

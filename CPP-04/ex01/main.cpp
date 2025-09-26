@@ -17,7 +17,15 @@ int main()
     std::cout << " --------- " << std::endl;
 
 
-    delete j; // should not create a leak
+    Dog h;
+    Dog g;
+
+    g = h;
+
+    std::cout << " --------- " << std::endl;
+
+
+    delete j;
     delete i;
     return 0;
 }
