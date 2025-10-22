@@ -71,7 +71,7 @@ std::ostream&   operator<<(std::ostream& out, const Bureaucrat& obj)
 
 
 // class logic
-void        Bureaucrat::signForm( Form& form )
+void        Bureaucrat::signForm( AForm& form )
 {
     try {
         form.beSigned(*this);
@@ -86,3 +86,14 @@ void        Bureaucrat::signForm( Form& form )
     }
 }
 
+void        Bureaucrat::executeForm(AForm const & form) const
+{
+    if (!form.getIs_signed())
+        throw AForm::FormNotSignedException();
+    if (this->getGrade() > form.getGrade_2_exec())
+        throw AForm::GradeTooLowException();
+    std::cout << this->getName()
+                << " executed the form "
+                << form.getName()
+                << std::endl;
+}

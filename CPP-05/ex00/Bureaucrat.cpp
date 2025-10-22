@@ -4,6 +4,7 @@
 // Ortodox
 Bureaucrat::Bureaucrat()
     : name("3aziz")
+    , grade(150)
 {
     std::cout << "Default Constructor Called" << std::endl;
 }
