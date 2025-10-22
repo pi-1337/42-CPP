@@ -1,27 +1,31 @@
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
 
 int main()
 {
     
     
-    Form f;
-    Bureaucrat b("zakaria", 150);
+    Form f("formy", 100, 100);
+    Bureaucrat zakaria("zakaria", 99);
+    Bureaucrat issa("3issa", 101);
 
 
-    std::cerr << std::endl << "======== TESTS ========" << std::endl << std::endl;
+    std::cout << std::endl << "======== START TESTS ========" << std::endl << std::endl;
 
     try {
-        b.signForm(f);
+        zakaria.signForm(f);
+        issa.signForm(f);
 
+        issa.increment();
         
+        issa.signForm(f);
 
     } catch(std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cerr << std::endl << "======== after TESTS ========" << std::endl << std::endl;
+    std::cout << std::endl << "======== END TESTS ========" << std::endl << std::endl;
 
 
 }

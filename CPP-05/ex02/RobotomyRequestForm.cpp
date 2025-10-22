@@ -42,8 +42,8 @@ void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
     // concrete class action
 
     std::cout << "[Making some drilling noises]\n";
-    srand (time(NULL));
-    if (rand() % 2)
+    srand(time(NULL));
+    if (rand() % 2 == 1)
         std::cout << this->getTarget() << " has been successfully robotomized!\n";
     else
         std::cout << "Too bad... Robotomy failed on " << this->getTarget() << "\n";
