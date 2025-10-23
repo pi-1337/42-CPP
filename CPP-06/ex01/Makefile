@@ -1,5 +1,5 @@
 # Executable
-NAME = exec
+NAME = stupid_cast
 
 # Compilation
 CC = c++

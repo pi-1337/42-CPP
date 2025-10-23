@@ -1,5 +1,5 @@
 # Executable
-NAME = exec
+NAME = dynamic_cast
 
 # Compilation
 CC = c++

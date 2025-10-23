@@ -3,7 +3,6 @@
 #define SERIALIZER_HPP
 
 #include <string>
-#include <cstdint>
 #include "Data.hpp"
 
 typedef unsigned long uintptr_t;

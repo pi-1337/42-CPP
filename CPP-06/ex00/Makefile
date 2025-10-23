@@ -1,5 +1,5 @@
 # Executable
-NAME = exec
+NAME = static_cast
 
 # Compilation
 CC = c++
