@@ -15,10 +15,10 @@ OBJ_DIR = obj
 OBJ_DIRS = $(OBJ_DIR)
 
 # INC
-INC = Bureaucrat.hpp 
+INC = ScalarConverter.hpp 
 
 # SRC
-SRC = main.cpp Bureaucrat.cpp 
+SRC = main.cpp ScalarConverter.cpp 
 
 # OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))

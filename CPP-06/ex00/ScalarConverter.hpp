@@ -3,10 +3,21 @@
 #define SCALARCONVERTER_HPP
 
 #include <string>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
 
 class ScalarConverter {
+private:
+    // Orthodox
+    ScalarConverter();
+    ScalarConverter(ScalarConverter const &obj);
+    ScalarConverter& operator=(ScalarConverter const &obj);
+    ~ScalarConverter();
+
 public:
-    static void     convert( std::string str );
-}
+    // class utility
+    static void     convert( const std::string& s );
+};
 
 #endif
