@@ -48,10 +48,10 @@ AForm*    Intern::makeForm(std::string formName, std::string formTarget)
     };
 
     // find form
-    int i = 0;
-    while (i < 3)
+    int i = -1;
+    while (++i < 3)
     {
-        if (formNames[i++] == formName)
+        if (formNames[i] == formName)
             break ;
     }
 

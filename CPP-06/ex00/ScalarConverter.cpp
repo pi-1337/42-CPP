@@ -84,7 +84,7 @@ void     ScalarConverter::convert( const std::string& s )
             std::cout << "char: " << static_cast<char>(n) << "\n";
         else
             std::cout << "char: <not printable>\n";
-        std::cout << "int: impossible\n";
+        std::cout << "int: " << n << "\n";
         std::cout << "float: " << static_cast<float>(n) << "f\n";
         std::cout << "double: " << static_cast<double>(n) << "\n";
         return;
@@ -95,7 +95,18 @@ void     ScalarConverter::convert( const std::string& s )
     {
         double d = std::atof(s.c_str());
         std::cout << "char: impossible\n";
-        std::cout << "int: impossible\n";
+        std::cout << "int: " << static_cast<int>(d) << "\n";
+        std::cout << "float: " << static_cast<float>(d) << "f\n";
+        std::cout << "double: " << d << "\n";
+    }
+
+    // float
+    int len = s.length();
+    if (len && isDouble(s.substr(0, len-1)) && s[len-1] == 'f')
+    {
+        double d = std::atof(s.c_str());
+        std::cout << "char: impossible\n";
+        std::cout << "int: " << static_cast<int>(d) << "\n";
         std::cout << "float: " << static_cast<float>(d) << "f\n";
         std::cout << "double: " << d << "\n";
     }

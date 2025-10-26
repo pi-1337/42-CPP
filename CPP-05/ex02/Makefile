@@ -43,7 +43,7 @@ clean:
 	@echo "[🧼 CLEANING the obj files]"
 
 fclean: clean
-	@rm -f $(NAME) *.replace
+	@rm -f $(NAME)
 	@echo "[🧼 CLEANING the executable]"
 
 re: fclean all
