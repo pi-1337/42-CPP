@@ -25,5 +25,7 @@ int main()
 
     identify(*ptr);
 
+    delete ptr;
+
     return 0;
 }

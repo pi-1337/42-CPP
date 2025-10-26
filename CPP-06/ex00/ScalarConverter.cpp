@@ -28,20 +28,22 @@ bool isInt(const std::string &s) {
 
 bool isDouble(const std::string &s) {
     int count_dots = 0;
+    size_t len = s.length();
 
-    if (s.empty())
+    if (len == 0)
         return false;
-    for (size_t i = (s[0] == '+' || s[0] == '-'); i < s.length(); i++) {
+    for (size_t i = (s[0] == '+' || s[0] == '-'); i < len; i++) {
         count_dots += s[i] == '.';
         if (!std::isdigit(static_cast<char>(s[i])) && s[i] != '.')
             return false;
     }
-    return count_dots == 1;
+    return count_dots <= 1 && s[len-1] != '.';
 }
 
 // class utility
 void     ScalarConverter::convert( const std::string& s )
 {
+    // ghir wa7d ajmi
     std::cout << std::fixed << std::setprecision(1);
 
     // char
@@ -80,7 +82,7 @@ void     ScalarConverter::convert( const std::string& s )
     if (isInt(s))
     {
         int n = atoi(s.c_str());
-        if (std::isprint(n))
+        if (((n&((1<<8)-1)) == n) && std::isprint(n))
             std::cout << "char: " << static_cast<char>(n) << "\n";
         else
             std::cout << "char: <not printable>\n";
@@ -94,8 +96,14 @@ void     ScalarConverter::convert( const std::string& s )
     if (isDouble(s))
     {
         double d = std::atof(s.c_str());
-        std::cout << "char: impossible\n";
-        std::cout << "int: " << static_cast<int>(d) << "\n";
+        int n = static_cast<int>(d);
+        if (((n&((1<<8)-1)) == n) && std::isprint(n) && d-n == 0.0)
+            std::cout << "char: " << static_cast<char>(d) << "\n";
+        else if (d-n == 0.0)
+            std::cout << "char: <not printable>\n";
+        else
+            std::cout << "char: impossible\n";
+        std::cout << "int: " << n << "\n";
         std::cout << "float: " << static_cast<float>(d) << "f\n";
         std::cout << "double: " << d << "\n";
     }
@@ -105,8 +113,14 @@ void     ScalarConverter::convert( const std::string& s )
     if (len && isDouble(s.substr(0, len-1)) && s[len-1] == 'f')
     {
         double d = std::atof(s.c_str());
-        std::cout << "char: impossible\n";
-        std::cout << "int: " << static_cast<int>(d) << "\n";
+        int n = static_cast<int>(d);
+        if (((n&((1<<8)-1)) == n) && std::isprint(n) && d-n == 0.0)
+            std::cout << "char: " << static_cast<char>(d) << "\n";
+        else if (d-n == 0.0)
+            std::cout << "char: <not printable>\n";
+        else
+            std::cout << "char: impossible\n";
+        std::cout << "int: " << n << "\n";
         std::cout << "float: " << static_cast<float>(d) << "f\n";
         std::cout << "double: " << d << "\n";
     }
