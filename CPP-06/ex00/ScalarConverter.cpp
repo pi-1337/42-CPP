@@ -85,7 +85,7 @@ void     ScalarConverter::convert( const std::string& s )
         if (((n&((1<<8)-1)) == n) && std::isprint(n))
             std::cout << "char: " << static_cast<char>(n) << "\n";
         else
-            std::cout << "char: <not printable>\n";
+            std::cout << "char: Non displayable\n";
         std::cout << "int: " << n << "\n";
         std::cout << "float: " << static_cast<float>(n) << "f\n";
         std::cout << "double: " << static_cast<double>(n) << "\n";
@@ -100,7 +100,7 @@ void     ScalarConverter::convert( const std::string& s )
         if (((n&((1<<8)-1)) == n) && std::isprint(n) && d-n == 0.0)
             std::cout << "char: " << static_cast<char>(d) << "\n";
         else if (d-n == 0.0)
-            std::cout << "char: <not printable>\n";
+            std::cout << "char: Non displayable\n";
         else
             std::cout << "char: impossible\n";
         std::cout << "int: " << n << "\n";
@@ -117,7 +117,7 @@ void     ScalarConverter::convert( const std::string& s )
         if (((n&((1<<8)-1)) == n) && std::isprint(n) && d-n == 0.0)
             std::cout << "char: " << static_cast<char>(d) << "\n";
         else if (d-n == 0.0)
-            std::cout << "char: <not printable>\n";
+            std::cout << "char: Non displayable\n";
         else
             std::cout << "char: impossible\n";
         std::cout << "int: " << n << "\n";
