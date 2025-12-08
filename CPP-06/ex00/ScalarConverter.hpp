@@ -1,23 +1,37 @@
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef SCALAR_CONVERTER_HPP
+#define SCALAR_CONVERTER_HPP
 
-#include <string>
 #include <iostream>
-#include <iomanip>
+#include <string>
 #include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <limits>
+#include <iomanip>
+#include <cstring>
+#include <climits>
 
 class ScalarConverter {
 private:
-    // Orthodox
+    // ORTHODOX
     ScalarConverter();
-    ScalarConverter(ScalarConverter const &obj);
-    ScalarConverter& operator=(ScalarConverter const &obj);
+    ScalarConverter(const ScalarConverter& other);
+    ScalarConverter& operator=(const ScalarConverter& other);
     ~ScalarConverter();
 
 public:
-    // class utility
-    static void     convert( const std::string& s );
+    static void convert( char * input );
 };
 
+// display
+void    convertChar( double parsed, bool valid );
+void    convertInt( double parsed, bool valid );
+void    convertFloat( double parsed, bool valid );
+void    convertDouble( double parsed, bool valid );
+
+// parsing
+double  parseInput(char *input, bool& valid);
+
 #endif
+

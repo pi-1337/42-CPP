@@ -1,5 +1,5 @@
 # Executable
-NAME = static_cast
+NAME = convert
 
 # Compilation
 CC = c++
@@ -15,10 +15,10 @@ OBJ_DIR = obj
 OBJ_DIRS = $(OBJ_DIR)
 
 # INC
-INC = ScalarConverter.hpp 
+INC = ScalarConverter.hpp
 
 # SRC
-SRC = main.cpp ScalarConverter.cpp 
+SRC = main.cpp ScalarConverter.cpp parsingUtils.cpp
 
 # OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
@@ -43,7 +43,7 @@ clean:
 	@echo "[🧼 CLEANING the obj files]"
 
 fclean: clean
-	@rm -f $(NAME) *.replace
+	@rm -f $(NAME)
 	@echo "[🧼 CLEANING the executable]"
 
 re: fclean all

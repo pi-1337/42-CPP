@@ -3,14 +3,14 @@
 #define SERIALIZER_HPP
 
 #include <string>
+#include <stdint.h>
 #include "Data.hpp"
-
-typedef unsigned long uintptr_t;
+#include <iostream>
 
 class Serializer {
 public:
     static uintptr_t    serialize( Data* ptr );
     static Data*        deserialize( uintptr_t raw );
-}
+};
 
 #endif
