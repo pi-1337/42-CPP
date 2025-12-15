@@ -4,8 +4,8 @@
 
 #include <iostream>
 
-template <typename T>
-void    iter(T* arr, const int len, void (*func)(T&))
+template <typename T, typename FUNC>
+void    iter(T* arr, const int len, FUNC func)
 {
     for (int i = 0; i < len; i++)
         func(arr[i]);

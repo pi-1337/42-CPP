@@ -47,16 +47,14 @@ Array<T>::Array()
 template <typename T>
 Array<T>::Array(unsigned int n)
     : len(n)
-    , list(new T[len])
+    , list(new T[len]())
 {
 }
 template <typename T>
 Array<T>::Array(const Array& other)
-    : len(other.len)
+    :list(NULL)
 {
-    list = new T[other.len];
-    for (unsigned int i = 0; i < len; i++)
-        this->list[i] = other.list[i];
+    *this = other;
 }
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
@@ -85,7 +83,6 @@ unsigned int    Array<T>::size( void ) const
 {
     return len;
 }
-
 
 template <typename T>
 T& Array<T>::operator[](unsigned int index) const
