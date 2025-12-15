@@ -25,13 +25,13 @@ public:
 };
 
 // display
-void    convertChar( double parsed, bool valid );
-void    convertInt( double parsed, bool valid );
-void    convertFloat( double parsed, bool valid );
-void    convertDouble( double parsed, bool valid );
+void    convertChar( double parsed, bool valid, bool infinite );
+void    convertInt( double parsed, bool valid, bool infinite );
+void    convertFloat( double parsed, bool valid, bool infinite );
+void    convertDouble( double parsed, bool valid, bool infinite );
 
 // parsing
-double  parseInput(char *input, bool& valid);
+double  parseInput(std::string input, bool& valid, bool& infinite );
 
 #endif
 

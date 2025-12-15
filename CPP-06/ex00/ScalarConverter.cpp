@@ -23,19 +23,22 @@ ScalarConverter::~ScalarConverter()
 void    ScalarConverter::convert( char* input )
 {
     bool valid = true;
+    bool infinite = false;
     std::cout << std::fixed << std::setprecision(1);
-    double parsed = parseInput(input, valid);
+    double parsed = parseInput(input, valid, infinite);
 
     std::cout << "char: ";
-    convertChar(parsed, valid);
+    convertChar(parsed, valid, infinite);
 
     std::cout << std::endl << "int: "   ;
-    convertInt(parsed, valid);
+    convertInt(parsed, valid, infinite);
 
     std::cout << std::endl << "float: " ;
-    convertFloat(parsed, valid);
+    infinite ? (std::cout << input[0] << "inf") : std::cout << "";
+    convertFloat(parsed, valid, infinite);
 
     std::cout << std::endl << "double: ";
-    convertDouble(parsed, valid);
+    infinite ? (std::cout << input[0] << "inff") : std::cout << "";
+    convertDouble(parsed, valid, infinite);
     std::cout << std::endl;
 }

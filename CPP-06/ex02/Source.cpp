@@ -48,13 +48,13 @@ void    identify( Base& p )
     int idx = 0;
 
     try {
-        dynamic_cast<A&>(p); idx = 0;
+        (void)dynamic_cast<A&>(p); idx = 0;
     } catch ( std::exception& e ) {}
     try {
-        dynamic_cast<B&>(p); idx = 1;
+        (void)dynamic_cast<B&>(p); idx = 1;
     } catch ( std::exception& e ) {}
     try {
-        dynamic_cast<C&>(p); idx = 2;
+        (void)dynamic_cast<C&>(p); idx = 2;
     } catch ( std::exception& e ) {}
 
     std::cout << strs[idx] << std::endl;
