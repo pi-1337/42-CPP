@@ -24,7 +24,7 @@ public:
     unsigned int    size( void ) const ;
 
     // []
-    T& operator[](unsigned int index);
+    T& operator[](unsigned int index) const;
 
     // exceptions
     class index_is_out_of_bounds: public std::exception {
@@ -40,18 +40,19 @@ public:
 // ORTHODOX
 template <typename T>
 Array<T>::Array()
+    : len(0)
+    , list(NULL)
 {
-    len = 0;
-    list = new T[len];
 }
 template <typename T>
 Array<T>::Array(unsigned int n)
+    : len(n)
+    , list(new T[len])
 {
-    len = n;
-    list = new T[len];
 }
 template <typename T>
 Array<T>::Array(const Array& other)
+    : len(other.len)
 {
     list = new T[other.len];
     for (unsigned int i = 0; i < len; i++)
@@ -60,6 +61,9 @@ Array<T>::Array(const Array& other)
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
+    if (this == &other)
+        return *this;
+
     this->len = other.len;
     delete[] list;
     list = new T[other.len];
@@ -84,7 +88,7 @@ unsigned int    Array<T>::size( void ) const
 
 
 template <typename T>
-T& Array<T>::operator[](unsigned int index)
+T& Array<T>::operator[](unsigned int index) const
 {
     if (index >= len)
         throw Array<T>::index_is_out_of_bounds();
