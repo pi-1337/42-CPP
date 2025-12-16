@@ -1,30 +1,41 @@
 
+
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <vector>
 #include <iostream>
 #include <algorithm>
-#include <climits>
+#include <vector>
+#include <exception>
 
 class Span {
 private:
-    unsigned int        size;
+    unsigned int        N;
     std::vector<int>    numbers;
 
 public:
-    // ORTHODOX
+    // Orthodox
     Span();
-    Span(unsigned int N);
+    Span(unsigned int _N);
     Span(const Span& other);
     Span& operator=(const Span& other);
     ~Span();
 
-    // class logic
+    // class logic here
     void    addNumber( int newElm );
-    void    addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+    template <typename T>
+    void    addNumbers( T start, T end );
     int     shortestSpan( void );
     int     longestSpan( void );
 };
+
+
+template <typename T>
+void    Span::addNumbers( T it_start, T it_end )
+{
+    if (std::distance(it_start, it_end) + this->numbers.size() > this->N)
+        throw std::logic_error("not enough space in container !");
+    this->numbers.insert(this->numbers.end(), it_start, it_end);
+}
 
 #endif

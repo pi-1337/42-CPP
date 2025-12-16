@@ -6,15 +6,19 @@
 #include <vector>
 
 template <typename T>
-int easyfind(T& arr, int elm)
+int easyfind(T& container, int elm)
 {
     typename T::iterator it;
-    for (it = arr.begin(); it != arr.end(); ++it)
+    for (
+            it = container.begin();
+            it != container.end();
+            ++it
+        )
     {
         if (*it == elm)
-            return elm;
+            return *it;
     }
-    // tf93 ola dir chihaja
+    // tfr93_0l4_d1r_ch17@j@
     return -1;
 }
 
