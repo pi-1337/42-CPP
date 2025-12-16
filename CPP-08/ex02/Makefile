@@ -1,5 +1,5 @@
 # Executable
-NAME = Span
+NAME = MutantStack
 
 # Compilation
 CC = c++
@@ -18,7 +18,7 @@ OBJ_DIRS = $(OBJ_DIR)
 INC = MutantStack.hpp
 
 # SRC
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 
 # OBJ
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
