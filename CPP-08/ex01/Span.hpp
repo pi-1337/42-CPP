@@ -23,19 +23,9 @@ public:
 
     // class logic here
     void    addNumber( int newElm );
-    template <typename T>
-    void    addNumbers( T start, T end );
+    void    addNumbers( std::vector<int>::iterator start, std::vector<int>::iterator end );
     int     shortestSpan( void );
     int     longestSpan( void );
 };
-
-
-template <typename T>
-void    Span::addNumbers( T it_start, T it_end )
-{
-    if (std::distance(it_start, it_end) + this->numbers.size() > this->N)
-        throw std::logic_error("not enough space in container !");
-    this->numbers.insert(this->numbers.end(), it_start, it_end);
-}
 
 #endif

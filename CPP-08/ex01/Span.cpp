@@ -36,6 +36,12 @@ void    Span::addNumber( int newElm )
         throw std::logic_error("not enough space in container !");
     this->numbers.push_back(newElm);
 }
+void    Span::addNumbers( std::vector<int>::iterator it_start, std::vector<int>::iterator it_end )
+{
+    if (std::distance(it_start, it_end) + this->numbers.size() > this->N)
+        throw std::logic_error("not enough space in container !");
+    this->numbers.insert(this->numbers.end(), it_start, it_end);
+}
 
 int     Span::shortestSpan( void )
 {

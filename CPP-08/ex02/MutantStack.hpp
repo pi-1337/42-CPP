@@ -18,15 +18,12 @@ public:
 
 
     // iterator stuff
-    typedef typename std::stack<T>::container_type Container;
-    typedef typename Container::iterator iterator;
+    typedef typename std::stack<T>::container_type::iterator iterator;
     
     iterator begin( void );
     iterator end( void );
 
 };
-
-
 
 
 // orthodox
