@@ -28,7 +28,7 @@ bool    is_operator(char tkn)
     return (tkn == '+' || tkn == '-' || tkn == '*' || tkn == '/');
 }
 
-long RPN(std::string arg)
+long RPN(str arg)
 {
     std::stack<long> my_stack;
     long result = 0;
@@ -42,7 +42,7 @@ long RPN(std::string arg)
         else if (is_operator(token))
             my_stack.push(operate(my_stack, token));
         else
-            throw std::logic_error("syntax err: invalid token --> " + std::string(1, token));
+            throw std::logic_error("syntax err: invalid token --> " + str(1, token));
     }
     result = my_stack.top();
     my_stack.pop();

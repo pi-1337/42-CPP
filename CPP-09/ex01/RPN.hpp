@@ -8,6 +8,8 @@
 #include <string>
 #include <sstream>
 
-long RPN(std::string arg);
+typedef std::string str;
+
+long RPN(str arg);
 
 #endif

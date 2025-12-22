@@ -7,6 +7,8 @@
 #include <iostream>
 #include <exception>
 
+typedef std::string str;
+
 void    parseVector(int ac, char **av, std::vector<long>& list);
 
 

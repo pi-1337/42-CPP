@@ -16,6 +16,7 @@
 #define MM_MASK (0b00000000000000001111111100000000)
 #define DD_MASK (0b00000000000000000000000011111111)
 
+typedef std::string str;
 typedef std::map<int, double> myMap;
 typedef typename myMap::iterator iterator;
 

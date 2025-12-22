@@ -5,7 +5,7 @@
 void    parseVector(int ac, char **av, std::vector<long>& list)
 {
     long    parsed;
-    std::string rest;
+    str rest;
     
     for (int i = 1; i < ac; i++)
     {
