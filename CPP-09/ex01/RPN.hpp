@@ -6,7 +6,8 @@
 #include <stack>
 #include <exception>
 #include <string>
+#include <sstream>
 
-int RPN(std::string arg, bool& valid);
+long RPN(std::string arg);
 
 #endif

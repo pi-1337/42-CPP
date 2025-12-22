@@ -1,13 +1,12 @@
 
 #include "RPN.hpp"
 
-int operate(std::stack<int> my_stack, char op)
+long operate(std::stack<long>& my_stack, char op)
 {
-    (void) my_stack;
-    int a = my_stack.top();
-    my_stack.pop();
-    int b = my_stack.top();
-    my_stack.pop();
+    if (my_stack.size() < 2)
+        throw std::logic_error("syntax err");
+    long a = my_stack.top(); my_stack.pop();
+    long b = my_stack.top(); my_stack.pop();
 
     if (op == '+')
         return b+a;
@@ -21,29 +20,33 @@ int operate(std::stack<int> my_stack, char op)
             throw std::logic_error("division by zero !");
         return b/a;
     }
-    else
-        throw std::logic_error("Error");
+    throw std::logic_error("invalid syntax");
 }
 
-int RPN(std::string arg, bool& valid)
+bool    is_operator(char tkn)
 {
-    std::stack<int> my_stack;
-    int result;
+    return (tkn == '+' || tkn == '-' || tkn == '*' || tkn == '/');
+}
 
-    valid = true;
-    unsigned int len = arg.size();
-    try {
-        for (unsigned int i = 0; i < len; i += 2)
-        {
-            if (std::isdigit(arg[i]))
-                my_stack.push(arg[i] - '0');
-            else
-                my_stack.push(operate(my_stack, arg[i]));
-        }
-        result = my_stack.top();
-        my_stack.pop();
-    } catch (...) {
-        valid = false;
+long RPN(std::string arg)
+{
+    std::stack<long> my_stack;
+    long result = 0;
+    std::stringstream ss(arg);
+    char token;
+
+    while (ss >> token)
+    {
+        if (std::isdigit(token))
+            my_stack.push(token - '0');
+        else if (is_operator(token))
+            my_stack.push(operate(my_stack, token));
+        else
+            throw std::logic_error("syntax err: invalid token --> " + std::string(1, token));
     }
+    result = my_stack.top();
+    my_stack.pop();
+    if (my_stack.size() != 0)
+        throw std::logic_error("syntax err");
     return result;
 }

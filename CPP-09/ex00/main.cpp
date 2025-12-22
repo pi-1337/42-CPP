@@ -9,13 +9,19 @@ int main( int ac, char **av ) {
         return -1;
     }
 
+    std::ifstream dbFile("data.csv");
     std::ifstream inpFile(av[1]);
 
-    if (inpFile)
-        processData(inpFile);
-    else
+    myMap db;
+    myMap input;
+
+    try {
+        processData(dbFile, db, ',', db);
+        processData(inpFile, input, '|', db);
+    }
+    catch (std::exception& e)
     {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
         return -1;
     }
     inpFile.close();
