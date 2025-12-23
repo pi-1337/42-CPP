@@ -63,14 +63,14 @@ void    parseObj(str line, int& date, double& value, char delim)
 
     ss >> YY >> dash0
        >> MM >> dash1
-       >> DD >> dash2
-       >> value >> rest;
+       >> DD >> dash2;
+
+    if (!(ss >> value) || (ss >> rest))
+        throw std::logic_error("bad input => " + line);
 
     if (dash0 != '-' || dash1 != '-' || dash2 != delim || rest != "")
         throw std::logic_error("bad input => " + line);
 
-
-    // valid dates
     date = date2Int(YY, MM, DD);
 
     if (
@@ -81,7 +81,7 @@ void    parseObj(str line, int& date, double& value, char delim)
     {
         std::stringstream err;
         err << YY << "-" << MM << "-" << DD;
-        throw std::logic_error(str("invalid date => ") + int2Date(date));
+        throw std::logic_error("bad input => " + line);
     }
 
 
@@ -91,39 +91,8 @@ void    parseObj(str line, int& date, double& value, char delim)
         throw std::logic_error("too large a number.");
 }
 
-// static std::string  trim(std::string& str)
-// {
-//     long start = 0;
-//     for (; str[start] && str[start] == ' '; start++);
-
-//     long end = str.size()-1;
-//     for (; end >= 0 && str[end] == ' '; end--);
-
-//     return str.substr(start, end - start + 1);
-// }
-
-// void    validateHeader(str first, str second, char delim)
-// {
-
-//     std::cout << "'" <<  delim <<  "'" << std::endl;
-//     std::cout << "'" <<  first <<  "'" << std::endl;
-//     std::cout << "'" <<  second <<  "'" << std::endl;
-//     std::cout << "================" << std::endl;
-//     first = trim(first);
-//     second = trim(second);
-//     std::cout << "'" <<  delim <<  "'" << std::endl;
-//     std::cout << "'" <<  first <<  "'" << std::endl;
-//     std::cout << "'" <<  second <<  "'" << std::endl;
-//     if (delim == ',' && first == "date" && second == "exchange_rate") { }
-//     else if (delim == '|' && first == "date" && second == "value") { }
-//     else
-//         throw std::logic_error("Date header incorrect !!");
-// }
-
 void    processData(std::ifstream& s, myMap& table, char delim, myMap& db)
 {
-    // str first;
-    // str second;
     str header;
     str line;
     int         date = 0;
@@ -132,18 +101,23 @@ void    processData(std::ifstream& s, myMap& table, char delim, myMap& db)
     if (!s.is_open())
         throw std::logic_error("could not open file.");
 
-    // date delm value
+    // verify header
     getline(s, header);
-    std::stringstream ss(header);
-
-    // getline(ss, first, delim);
-    // ss >> second;
-    // validateHeader(first, second, delim);
+    if (
+        !(header == "date | value" && delim == '|')
+        && !(header == "date,exchange_rate" && delim == ',')
+    )
+        throw std::logic_error("Wrong Header.");
 
     while (getline(s, line))
     {
-        // 2011-01-03 delm 3
         try {
+            std::stringstream ss(line);
+            str test;
+            ss >> test;
+            if (test.empty())
+                continue ;
+
             parseObj(line, date, value, delim);
             table[date] = value;
             if (delim == '|')

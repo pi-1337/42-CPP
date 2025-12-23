@@ -44,6 +44,8 @@ long RPN(str arg)
         else
             throw std::logic_error("syntax err: invalid token --> " + str(1, token));
     }
+    if (my_stack.size() == 0)
+        throw std::logic_error("syntax err");
     result = my_stack.top();
     my_stack.pop();
     if (my_stack.size() != 0)
