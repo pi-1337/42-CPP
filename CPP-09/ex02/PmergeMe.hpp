@@ -8,8 +8,10 @@
 #include <exception>
 
 typedef std::string str;
+typedef std::vector<long> vec;
+typedef std::vector<long>::iterator iterator;
 
-void    parseVector(int ac, char **av, std::vector<long>& list);
-
+void        parseVector(int ac, char **av, vec& list);
+iterator    binarySearch(vec& list, long elm);
 
 #endif

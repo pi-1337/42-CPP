@@ -1,8 +1,7 @@
 
 #include "PmergeMe.hpp"
 
-
-void    parseVector(int ac, char **av, std::vector<long>& list)
+void    parseVector(int ac, char **av, vec& list)
 {
     long    parsed;
     str rest;
