@@ -9,9 +9,11 @@
 
 typedef std::string str;
 typedef std::vector<long> vec;
-typedef std::vector<long>::iterator iterator;
 
+// parsing
 void        parseVector(int ac, char **av, vec& list);
-iterator    binarySearch(vec& list, long elm);
+
+// Algo
+void        Ford_Jhonson(vec& list);
 
 #endif

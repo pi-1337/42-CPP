@@ -22,7 +22,7 @@ int main ( int ac, char **av )
         // Merge
 
         // try catch
-        mergeInsertionAlgo(list);
+        Ford_Jhonson(list);
 
 
         for (unsigned long i = 0; i < list.size(); i++)
