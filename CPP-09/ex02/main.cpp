@@ -9,31 +9,34 @@ int main ( int ac, char **av )
         return 1;
     }
 
-    vec list;
+    vec     vector;
+    deque   deq;
+
+    double duration1 = 0, duration2 = 0;
 
     try {
         //parsing 
-        parseVector(ac, av, list);
-        
-        //merge insertion
+        parseVector(ac, av, vector);
+        parseVector(ac, av, deq);
 
-        // Divide
-        // Conquer
-        // Merge
+        unsigned long len = vector.size();
 
-        // try catch
-        Ford_Jhonson(list);
+        std::cout << "Before: ";
+        for (unsigned long i = 0; i < vector.size(); i++)
+            std::cout << vector[i] << " ";
+        std::cout << std::endl;
 
+        // sorting algo
+        Ford_Jhonson(vector, duration1);
+        Ford_Jhonson(deq, duration2);
 
-        for (unsigned long i = 0; i < list.size(); i++)
-        {
-            std::cout << "afteA    - > " << list[i] << std::endl;
-        }
+        std::cout << "After: ";
+        for (unsigned long i = 0; i < vector.size(); i++)
+            std::cout << vector[i] << " ";
+        std::cout << std::endl;
 
-        // Before: 3 5 9 7 4
-        // After: 3 4 5 7 9
-        // Time to process a range of 5 elements with std::[..] : 0.00031 us
-        // Time to process a range of 5 elements with std::[..] : 0.00014 us
+        std::cout << "Time to process a range of " << len << " elements with std::vector : " << duration1 << " us" << std::endl;
+        std::cout << "Time to process a range of " << len << " elements with std::deque : " << duration2 << " us" << std::endl;
 
     } catch (std::exception& e) {
         std::cerr << "Error : " << e.what() << std::endl;
