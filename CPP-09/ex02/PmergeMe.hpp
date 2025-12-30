@@ -15,8 +15,8 @@ typedef std::vector<long> vec;
 typedef std::deque<long> deque;
 
 // parsing
-void        parseVector(int ac, char **av, vec& list);
-void        parseVector(int ac, char **av, deque& list);
+void        parseContainer(int ac, char **av, vec& list);
+void        parseContainer(int ac, char **av, deque& list);
 
 // Algo for vec
 void    getMainChain(vec& list, vec& mainChain, vec& pend);

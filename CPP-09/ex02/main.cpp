@@ -16,8 +16,8 @@ int main ( int ac, char **av )
 
     try {
         //parsing 
-        parseVector(ac, av, vector);
-        parseVector(ac, av, deq);
+        parseContainer(ac, av, vector);
+        parseContainer(ac, av, deq);
 
         unsigned long len = vector.size();
 
